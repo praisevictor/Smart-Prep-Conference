@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Register for the 4-Day Virtual Conference."
+    >
+
+    <title>Register | 4-Day Virtual Conference</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="registration.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Registration CSS -->
+    <!-- <link rel="stylesheet" href="registration.css"> -->
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+                <img
+                    src="smartprep logo 1.jpg (1).jpeg" style="width: 90px; height: auto;"
+                >
+            </a>
+
+            <a href="index.html" class="back-link">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="registration-page">
+
+        <div class="container registration-container">
+
+
+            <!-- ================= LEFT SIDE ================= -->
+
+            <section class="registration-intro">
+
+                <span class="eyebrow">
+                    4-DAY VIRTUAL CONFERENCE
+                </span>
+
+                <h1>
+                    Reserve your
+                    <span>place.</span>
+                </h1>
+
+                <p class="intro-text">
+                    Complete the registration form to secure your
+                    place at our four-day virtual conference.
+                    We look forward to having you join us.
+                </p>
+
+
+                <!-- Conference Details -->
+
+                <div class="conference-details">
+
+                    <div class="detail-item">
+
+                        <div class="detail-icon">
+                            📅
+                        </div>
+
+                        <div>
+                            <small>Duration</small>
+                            <strong>4 Days</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <div class="detail-icon">
+                            💻
+                        </div>
+
+                        <div>
+                            <small>Format</small>
+                            <strong>Online Meeting</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <div class="detail-icon">
+                            👥
+                        </div>
+
+                        <div>
+                            <small>Available Spaces</small>
+                            <strong>30 Participants</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Flyer -->
+
+                <div class="mini-flyer">
+
+                    <img
+                        src="WhatsApp Image 2026-08-14 at 23.08.33.jpeg"
+                    >
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= FORM ================= -->
+
+            <section class="registration-card">
+
+                <div class="form-header">
+
+                    <span class="form-step">
+                        STEP 01
+                    </span>
+
+                    <h2>
+                        Participant Registration
+                    </h2>
+
+                    <p>
+                        Please provide your details below.
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="registrationForm"
+                    novalidate
+                >
+
+
+                    <!-- Full Name -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                        <small
+                            class="error-message"
+                            id="fullNameError"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                        <small
+                            class="error-message"
+                            id="emailError"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- Phone -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="e.g. 08012345678"
+                            autocomplete="tel"
+                            required
+                        >
+
+                        <small
+                            class="error-message"
+                            id="phoneError"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- Organization -->
+
+                    <div class="form-group">
+
+                        <label for="organization">
+                            Organization / Institution
+                        </label>
+
+                        <input
+                            type="text"
+                            id="organization"
+                            name="organization"
+                            placeholder="Enter organization or institution"
+                            autocomplete="organization"
+                        >
+
+                    </div>
+
+
+                    <!-- Country -->
+
+                    <div class="form-group">
+
+                        <label for="country">
+                            Country
+                            <span>*</span>
+                        </label>
+
+                        <select
+                            id="country"
+                            name="country"
+                            required
+                        >
+
+                            <option value="">
+                                Select your country
+                            </option>
+
+                            <option value="Nigeria">
+                                Nigeria
+                            </option>
+
+                            <option value="Ghana">
+                                Ghana
+                            </option>
+
+                            <option value="Kenya">
+                                Kenya
+                            </option>
+
+                            <option value="South Africa">
+                                South Africa
+                            </option>
+
+                            <option value="United Kingdom">
+                                United Kingdom
+                            </option>
+
+                            <option value="United States">
+                                United States
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                        <small
+                            class="error-message"
+                            id="countryError"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- Additional Information -->
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Additional Information
+                            <small>(Optional)</small>
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            placeholder="Anything you would like us to know?"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Terms -->
+
+                    <div class="terms">
+
+                        <label class="checkbox-container">
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                                required
+                            >
+
+                            <span class="custom-checkbox"></span>
+
+                            <span class="terms-text">
+                                I confirm that the information
+                                provided is accurate and I agree
+                                to participate in the conference.
+                            </span>
+
+                        </label>
+
+                        <small
+                            class="error-message"
+                            id="termsError"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        id="submitButton"
+                    >
+
+                        <span id="buttonText">
+                            Complete Registration
+                        </span>
+
+                        <span class="button-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <!-- Security note -->
+
+                    <p class="form-note">
+                        🔒 Your information is handled securely.
+                    </p>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Company Logo"
+            >
+
+            <p>
+                © <span id="year"></span>
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
