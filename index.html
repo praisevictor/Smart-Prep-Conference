@@ -103,17 +103,150 @@
         /* =========================
         MOBILE MENU
         ========================= */
-        .menu-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-        }
+        /* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 25px;
+    height: 2px;
+
+    background: #111827;
+
+    border-radius: 5px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+@media (max-width: 700px) {
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        min-height: calc(100vh - 78px);
+
+        padding: 30px 6%;
+
+        background: #ffffff;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        /* Hidden by default */
+        visibility: hidden;
+        opacity: 0;
+
+        transform: translateY(-15px);
+
+        pointer-events: none;
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+        overflow-y: auto;
+
+        z-index: 1050;
+    }
+
+
+    /* OPEN MENU */
+
+    .nav.show {
+        visibility: visible;
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+        pointer-events: auto;
+    }
+
+
+    .nav-link {
+        display: block;
+
+        padding: 15px 5px;
+
+        border-bottom: 1px solid #f1f5f9;
+
+        font-size: 15px;
+    }
+
+
+    .nav-button {
+        display: block;
+
+        text-align: center;
+
+        margin-top: 15px;
+
+        padding: 15px;
+    }
+
+
+    /* Hamburger → X */
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+}
         .menu-toggle span {
             width: 24px;
             height: 2px;
@@ -573,36 +706,495 @@
                 gap: 35px;
             }
         }
+        /* =====================================================
+   THEME SYSTEM
+===================================================== */
+
+:root {
+
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-card: #ffffff;
+
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+
+    --border-color: #e5e7eb;
+    --input-border: #d1d5db;
+
+    --button-bg: #111827;
+    --button-text: #ffffff;
+
+    --header-bg: rgba(255, 255, 255, 0.94);
+
+    --footer-bg: #030712;
+    --footer-text: #ffffff;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.07);
+
+    --transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =====================================================
+   DARK MODE VARIABLES
+===================================================== */
+
+[data-theme="dark"] {
+
+    --bg-primary: #0b0f19;
+    --bg-secondary: #111827;
+    --bg-card: #151b28;
+
+    --text-primary: #f9fafb;
+    --text-secondary: #a7b0c0;
+    --text-muted: #7d8798;
+
+    --border-color: #273244;
+    --input-border: #344054;
+
+    --button-bg: #f9fafb;
+    --button-text: #111827;
+
+    --header-bg: rgba(11, 15, 25, 0.94);
+
+    --footer-bg: #050811;
+    --footer-text: #f9fafb;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   GLOBAL THEME TRANSITION
+===================================================== */
+
+body,
+.header,
+.nav,
+.hero,
+.about,
+.schedule,
+.registration-card,
+.feature-card,
+.schedule-card,
+.info-item,
+.flyer-wrapper,
+.footer,
+.cta,
+.form-group input,
+.form-group select,
+.form-group textarea {
+    transition: var(--transition);
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    background: var(--header-bg);
+
+    border-color: var(--border-color);
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav-link {
+    color: var(--text-secondary);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+
+/* =====================================================
+   THEME TOGGLE
+===================================================== */
+
+.theme-toggle {
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 50%;
+
+    background: var(--bg-card);
+
+    color: var(--text-primary);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.theme-toggle:hover {
+
+    transform: rotate(15deg) scale(1.05);
+
+    background: var(--bg-secondary);
+}
+
+.theme-icon {
+
+    line-height: 1;
+
+    display: block;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(99, 102, 241, 0.08),
+            transparent 30%
+        ),
+        var(--bg-secondary);
+}
+
+.hero-description {
+    color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   EYEBROW / LABELS
+===================================================== */
+
+.eyebrow,
+.section-label {
+    color: var(--text-muted);
+}
+
+
+/* =====================================================
+   EVENT INFO
+===================================================== */
+
+.info-item {
+
+    background: var(--bg-card);
+
+    border-color: var(--border-color);
+}
+
+.info-icon {
+
+    background: var(--bg-secondary);
+
+    color: var(--text-primary);
+}
+
+.info-item strong {
+    color: var(--text-primary);
+}
+
+.info-item span {
+    color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.primary-button {
+
+    background: var(--button-bg);
+
+    color: var(--button-text);
+}
+
+.secondary-button {
+
+    background: var(--bg-card);
+
+    border-color: var(--border-color);
+
+    color: var(--text-primary);
+}
+
+.secondary-button:hover {
+
+    background: var(--bg-secondary);
+}
+
+
+/* =====================================================
+   FLYER
+===================================================== */
+
+.flyer-wrapper {
+
+    background: var(--bg-card);
+
+    border-color: var(--border-color);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+
+    background: var(--bg-primary);
+}
+
+.section-heading h2 {
+    color: var(--text-primary);
+}
+
+.section-heading p {
+    color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   FEATURE CARDS
+===================================================== */
+
+.feature-card {
+
+    background: var(--bg-card);
+
+    border-color: var(--border-color);
+}
+
+.feature-card:hover {
+
+    box-shadow: var(--shadow);
+}
+
+.feature-number {
+    color: var(--text-muted);
+}
+
+.feature-card h3 {
+    color: var(--text-primary);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   SCHEDULE
+===================================================== */
+
+.schedule {
+
+    background: var(--bg-secondary);
+}
+
+.schedule-card {
+
+    background: var(--bg-card);
+
+    border-color: var(--border-color);
+}
+
+.schedule-card span {
+    color: var(--text-muted);
+}
+
+.schedule-card h3 {
+    color: var(--text-primary);
+}
+
+.schedule-card p {
+    color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   LIMITED TEXT
+===================================================== */
+
+.limited-text {
+    color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta {
+
+    background: #111827;
+
+    color: #ffffff;
+}
+
+[data-theme="dark"] .cta {
+
+    background: #050811;
+
+    border-top: 1px solid #1f2937;
+}
+
+.cta .section-label {
+    color: #9ca3af;
+}
+
+.cta p {
+    color: #9ca3af;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    background: var(--footer-bg);
+
+    color: var(--footer-text);
+}
+
+.footer-column a {
+    color: #9ca3af;
+}
+
+.footer-column a:hover {
+    color: var(--footer-text);
+}
+
+.footer-bottom {
+
+    border-color: #1f2937;
+}
+
+
+/* =====================================================
+   MOBILE DARK MENU
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .nav {
+
+        background: var(--bg-primary);
+
+        border-color: var(--border-color);
+    }
+
+    .nav-link {
+
+        border-color: var(--border-color);
+    }
+
+    .theme-toggle {
+
+        margin: 8px 0;
+
+        border-radius: 9px;
+
+        width: 100%;
+
+        height: 45px;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+}
     </style>
 </head>
 <body>
     <!-- ================= HEADER ================= -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img class="logo-img" src="SMARTPREP LOGO 1.jpg (1).jpeg" alt="Company Logo" style="width: 90px; height: auto;">
-            </a>
-            <nav class="nav" id="navMenu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#schedule" class="nav-link">Schedule</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="registration.html" class="nav-button">
-                    Register Now
-                </a>
-            </nav>
-            <!-- Mobile Menu -->
+        <header class="header">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="Company Logo">
+        </a>
+
+        <nav class="nav" id="navMenu">
+
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#schedule" class="nav-link">Schedule</a>
+            <a href="#contact" class="nav-link">Contact</a>
             <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open navigation menu"
+                type="button"
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Switch to dark mode"
+                title="Switch theme"
             >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
+                <span class="theme-icon" id="themeIcon">☾</span>
+                </button>
+
+            <a href="registration.html" class="nav-button">
+                Register Now
+            </a>
+
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</header>
     <!-- ================= HERO ================= -->
     <main>
         <section class="hero" id="home">
@@ -999,6 +1591,472 @@
 
     </footer>
     <!-- JavaScript -->
-    <script src="js/main.js"></script>
+    <script src="main.js">
+        document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    if (menuToggle && navMenu) {
+
+        menuToggle.addEventListener("click", () => {
+
+            const isOpen =
+                navMenu.classList.toggle("show");
+
+            menuToggle.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        });
+
+
+        /* Close menu when navigation link is clicked */
+
+        const navLinks =
+            navMenu.querySelectorAll("a");
+
+        navLinks.forEach((link) => {
+
+            link.addEventListener("click", () => {
+
+                navMenu.classList.remove("show");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+
+        /* Close menu when clicking outside */
+
+        document.addEventListener("click", (event) => {
+
+            const clickedInsideMenu =
+                navMenu.contains(event.target);
+
+            const clickedButton =
+                menuToggle.contains(event.target);
+
+            if (
+                !clickedInsideMenu &&
+                !clickedButton &&
+                navMenu.classList.contains("show")
+            ) {
+
+                navMenu.classList.remove("show");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+
+        /* Close menu when screen becomes desktop */
+
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 700) {
+
+                navMenu.classList.remove("show");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* =========================
+       CURRENT YEAR
+    ========================= */
+
+    const year =
+        document.getElementById("year");
+
+    if (year) {
+        year.textContent =
+            new Date().getFullYear();
+    }
+
+
+    /* =========================
+       ACTIVE NAVIGATION
+    ========================= */
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
+    const navLinks =
+        document.querySelectorAll(".nav-link");
+
+
+    function updateActiveNavigation() {
+
+        let currentSection = "";
+
+        sections.forEach((section) => {
+
+            const sectionTop =
+                section.offsetTop - 180;
+
+            if (window.scrollY >= sectionTop) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach((link) => {
+
+            link.classList.remove("active");
+
+            if (
+                link.getAttribute("href") ===
+                `#${currentSection}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    if (menuToggle && navMenu) {
+
+        menuToggle.addEventListener("click", () => {
+
+            const isOpen =
+                navMenu.classList.toggle("show");
+
+            menuToggle.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        });
+
+
+        const navLinks =
+            navMenu.querySelectorAll("a");
+
+
+        navLinks.forEach((link) => {
+
+            link.addEventListener("click", () => {
+
+                navMenu.classList.remove("show");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+
+        document.addEventListener("click", (event) => {
+
+            const clickedInsideMenu =
+                navMenu.contains(event.target);
+
+            const clickedButton =
+                menuToggle.contains(event.target);
+
+            if (
+                !clickedInsideMenu &&
+                !clickedButton &&
+                navMenu.classList.contains("show")
+            ) {
+
+                navMenu.classList.remove("show");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 700) {
+
+                navMenu.classList.remove("show");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       DARK / LIGHT MODE
+    ===================================================== */
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    const themeIcon =
+        document.getElementById("themeIcon");
+
+
+    function setTheme(theme) {
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            theme
+        );
+
+        localStorage.setItem(
+            "conference-theme",
+            theme
+        );
+
+
+        if (themeIcon) {
+
+            if (theme === "dark") {
+
+                themeIcon.textContent = "☀";
+
+                themeToggle.setAttribute(
+                    "aria-label",
+                    "Switch to light mode"
+                );
+
+                themeToggle.setAttribute(
+                    "title",
+                    "Switch to light mode"
+                );
+
+            } else {
+
+                themeIcon.textContent = "☾";
+
+                themeToggle.setAttribute(
+                    "aria-label",
+                    "Switch to dark mode"
+                );
+
+                themeToggle.setAttribute(
+                    "title",
+                    "Switch to dark mode"
+                );
+
+            }
+
+        }
+
+    }
+
+
+    function getInitialTheme() {
+
+        const savedTheme =
+            localStorage.getItem(
+                "conference-theme"
+            );
+
+
+        if (savedTheme) {
+            return savedTheme;
+        }
+
+
+        const prefersDark =
+            window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+
+        return prefersDark
+            ? "dark"
+            : "light";
+
+    }
+
+
+    /* Apply theme immediately */
+
+    setTheme(getInitialTheme());
+
+
+    /* Toggle theme */
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener(
+            "click",
+            () => {
+
+                const currentTheme =
+                    document.documentElement
+                        .getAttribute("data-theme");
+
+                const newTheme =
+                    currentTheme === "dark"
+                        ? "light"
+                        : "dark";
+
+                setTheme(newTheme);
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CURRENT YEAR
+    ===================================================== */
+
+    const year =
+        document.getElementById("year");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-link"
+        );
+
+
+    function updateActiveNavigation() {
+
+        let currentSection = "";
+
+
+        sections.forEach((section) => {
+
+            const sectionTop =
+                section.offsetTop - 180;
+
+
+            if (window.scrollY >= sectionTop) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach((link) => {
+
+            link.classList.remove("active");
+
+
+            if (
+                link.getAttribute("href") ===
+                `#${currentSection}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation
+    );
+
+});
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation
+    );
+
+});
+    </script>
 </body>
 </html>
